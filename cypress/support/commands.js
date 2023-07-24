@@ -1,3 +1,5 @@
+//import OpenCart from "../PageObjects/openCart"
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,3 +25,32 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('clikLink', (label) => {
+    cy.get('a').contains(label, { matchCase: false }).click();
+})
+
+Cypress.Commands.add('dropDown', (loc, loc1, text) => {
+    cy.get(loc).each(($ele) => {
+        if ($ele.text() == text) {
+            cy.wrap($ele).click();
+            cy.get(loc1).contains(text);
+
+        }
+    })
+})
+
+Cypress.Commands.add('Iframe', (loc) => {
+    return cy.get(loc)
+        .its("0.contentDocument.body")
+        .should("be.visible")
+        .then(cy.wrap);
+})
+
+
+Cypress.Commands.add('LoginPage', (locUserName, locPassword,username, password) => {
+    //cy.get("#input-username").type(username);
+    //cy.get("#input-password").type(password);
+    cy.get(locUserName).type(username);
+    cy.get(locPassword).type(password);
+})

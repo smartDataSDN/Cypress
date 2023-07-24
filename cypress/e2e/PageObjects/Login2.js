@@ -28,28 +28,3 @@ export default {
     verifyText
 };
  */
-
-
-let getEmail = (textUserName, username) => {
-    cy.get(textUserName).type(username);
-}
-
-let getPassword = (textPassword,password) => {
-    cy.get(textPassword).type(password);
-}
-
-let pageSubmit = (btnSubmit) => {
-    cy.get(btnSubmit).click();
-}
-
-let verifyText = (lblMsg) => {
-    cy.xpath(lblMsg).should('have.text', "Dashboard");
-}
-
-
-export default {
-    getEmail,
-    getPassword,
-    pageSubmit,
-    verifyText
-};

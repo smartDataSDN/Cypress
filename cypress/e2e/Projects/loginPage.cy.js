@@ -1,4 +1,4 @@
-//import Login  from "../PageObjects/Login.js"
+//import Login  from "../PageObjects/Login2.js"
 import Login from "../PageObjects/Login.js"
 describe("Login Page ways", () => {
     /*  it("Normal Approach", () => {
@@ -19,6 +19,7 @@ describe("Login Page ways", () => {
         log.verifyText();
         
     }) */
+    
     it("Page Object Approach with fixture file", () => {
         cy.visit("https://opensource-demo.orangehrmlive.com")
         cy.fixture('credentials').then((data) => {

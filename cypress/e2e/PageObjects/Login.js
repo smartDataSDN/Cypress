@@ -5,7 +5,7 @@ class Login {
     lblMsg = "//h6[normalize-space()='Dashboard']"
 
    
-    getEmail(username) {
+    getEmail=username=> {
         cy.get(this.textUserName).type(username);
     }
 
